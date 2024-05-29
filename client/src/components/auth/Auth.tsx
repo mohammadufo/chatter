@@ -1,28 +1,38 @@
-import { Button, Stack, TextField } from "@mui/material";
-import { useState } from "react";
+import { Button, Stack, TextField } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { useGetMe } from '../../hooks/useGetMe'
+import { useNavigate } from 'react-router-dom'
 
 interface AuthProps {
-  submitLabel: string;
-  onSubmit: (credentials: { email: string; password: string }) => Promise<void>;
-  children: React.ReactNode;
-  error?: string;
+  submitLabel: string
+  onSubmit: (credentials: { email: string; password: string }) => Promise<void>
+  children: React.ReactNode
+  error?: string
 }
 
 const Auth = ({ submitLabel, onSubmit, children, error }: AuthProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { data } = useGetMe()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (data) {
+      navigate('/')
+    }
+  }, [data])
 
   return (
     <Stack
       spacing={3}
       sx={{
-        height: "100vh",
+        height: '100vh',
         maxWidth: {
-          xs: "70%",
-          md: "30%",
+          xs: '70%',
+          md: '30%',
         },
-        margin: "0 auto",
-        justifyContent: "center",
+        margin: '0 auto',
+        justifyContent: 'center',
       }}
     >
       <TextField
@@ -48,7 +58,7 @@ const Auth = ({ submitLabel, onSubmit, children, error }: AuthProps) => {
       </Button>
       {children}
     </Stack>
-  );
-};
+  )
+}
 
-export default Auth;
+export default Auth
