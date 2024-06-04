@@ -4,6 +4,7 @@ import { ChatsRepository } from '../chat.repository';
 import { CreateMessageInput } from './dto/create-message.input';
 import { Message } from './entities/message.entity';
 import { Types } from 'mongoose';
+import { GetMessagesArgs } from './dto/get-messages.args';
 
 @Injectable()
 export class MessagesService {
@@ -20,14 +21,7 @@ export class MessagesService {
     await this.chatsRepo.findOneAndUpdate(
       {
         _id: chatId,
-        $or: [
-          { userId },
-          {
-            userIds: {
-              $in: [userId],
-            },
-          },
-        ],
+        ...this.userChatFilter(userId),
       },
       {
         $push: {
@@ -37,5 +31,27 @@ export class MessagesService {
     );
 
     return message;
+  }
+
+  private userChatFilter(userId: string) {
+    return {
+      $or: [
+        { userId },
+        {
+          userIds: {
+            $in: [userId],
+          },
+        },
+      ],
+    };
+  }
+
+  async getMessages({ chatId }: GetMessagesArgs, userId: string) {
+    return (
+      await this.chatsRepo.findOne({
+        _id: chatId,
+        ...this.userChatFilter(userId),
+      })
+    ).messages;
   }
 }
