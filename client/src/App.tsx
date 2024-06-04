@@ -1,5 +1,4 @@
 import {
-  Box,
   Container,
   CssBaseline,
   Grid,
@@ -31,24 +30,23 @@ const App = () => {
     <ApolloProvider client={client}>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Box sx={{ height: '100vh', overflow: 'hidden' }}>
-          <Header />
-
-          <Guard>
+        <Header />
+        <Guard>
+          <Container maxWidth="xl" sx={{ marginTop: '1rem' }}>
             {showChatList ? (
-              <Grid container>
-                <Grid item md={3}>
+              <Grid container spacing={5}>
+                <Grid item xs={12} md={5} lg={4} xl={3}>
                   <ChatList />
                 </Grid>
-                <Grid item md={9}>
+                <Grid xs={12} item md={7} lg={8} xl={9}>
                   <Routes />
                 </Grid>
               </Grid>
             ) : (
               <Routes />
             )}
-          </Guard>
-        </Box>
+          </Container>
+        </Guard>
         <Snackbar />
       </ThemeProvider>
     </ApolloProvider>
@@ -56,11 +54,7 @@ const App = () => {
 }
 
 const Routes = () => {
-  return (
-    <Container sx={{ height: '88vh' }}>
-      <RouterProvider router={router} />
-    </Container>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
