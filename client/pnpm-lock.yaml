@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@apollo/client':
     specifier: ^3.8.1
-    version: 3.8.1(graphql@16.8.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 3.8.1(graphql-ws@5.16.0)(graphql@16.8.0)(react-dom@18.2.0)(react@18.2.0)
   '@emotion/react':
     specifier: ^11.10.6
     version: 11.10.6(@types/react@18.0.0)(react@18.2.0)
@@ -50,6 +50,9 @@ dependencies:
   graphql:
     specifier: ^16.8.0
     version: 16.8.0
+  graphql-ws:
+    specifier: ^5.16.0
+    version: 5.16.0(graphql@16.8.0)
   localforage:
     specifier: ^1.10.0
     version: 1.10.0
@@ -118,7 +121,7 @@ packages:
       leven: 3.1.0
     dev: false
 
-  /@apollo/client@3.8.1(graphql@16.8.0)(react-dom@18.2.0)(react@18.2.0):
+  /@apollo/client@3.8.1(graphql-ws@5.16.0)(graphql@16.8.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-JGGj/9bdoLEqzatRikDeN8etseY5qeFAY0vSAx/Pd0ePNsaflKzHx6V2NZ0NsGkInq+9IXXX3RLVDf0EotizMA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -142,6 +145,7 @@ packages:
       '@wry/trie': 0.4.3
       graphql: 16.8.0
       graphql-tag: 2.12.6(graphql@16.8.0)
+      graphql-ws: 5.16.0(graphql@16.8.0)
       hoist-non-react-statics: 3.3.2
       optimism: 0.17.5
       prop-types: 15.8.1
@@ -7303,7 +7307,6 @@ packages:
       graphql: '>=0.11 <=16'
     dependencies:
       graphql: 16.8.0
-    dev: true
 
   /graphql@16.8.0:
     resolution: {integrity: sha512-0oKGaR+y3qcS5mCu1vb7KG+a89vjn06C7Ihq/dDl3jA+A8B3TKomvi3CiEcVLJQGalbu8F52LxkOym7U5sSfbg==}
