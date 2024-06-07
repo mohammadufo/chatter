@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 import { LoggerModule } from 'nestjs-pino';
 import { AuthModule } from './auth/auth.module';
 import { ChatsModule } from './chats/chats.module';
-import { PubSubModule } from './common/pubsub/pupsub.module';
+import { PubSubModule } from './common/pubsub/pubsub.module';
 import { Request } from 'express';
 import { AuthService } from './auth/auth.service';
 

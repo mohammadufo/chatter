@@ -3,10 +3,10 @@ import { ChatsService } from './chats.service';
 import { Chat } from './entities/chat.entity';
 import { CreateChatInput } from './dto/create-chat.input';
 import { UpdateChatInput } from './dto/update-chat.input';
-import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
 import { UseGuards } from '@nestjs/common';
-import { CurrentUser } from 'src/auth/current-user.decorator';
-import { TokenPayload } from 'src/auth/token-payload.interface';
+import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
+import { CurrentUser } from '../auth/current-user.decorator';
+import { TokenPayload } from '../auth/token-payload.interface';
 
 @Resolver(() => Chat)
 export class ChatsResolver {

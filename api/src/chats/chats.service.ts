@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateChatInput } from './dto/create-chat.input';
 import { UpdateChatInput } from './dto/update-chat.input';
-import { ChatsRepository } from './chat.repository';
+import { ChatsRepository } from './chats.repository';
 
 @Injectable()
 export class ChatsService {
