@@ -37,12 +37,20 @@ export class MessagesResolver {
     return this.messagesService.getMessages(getMessageArgs, user._id);
   }
 
+  @UseGuards(GqlAuthGuard)
   @Subscription(() => Message, {
-    filter: (payload, variables) => {
-      return payload.messageCreated.chatId === variables.chatId;
+    filter: (payload, variables, context) => {
+      const userId = context.req.user._id;
+      return (
+        payload.messageCreated.chatId === variables.chatId &&
+        userId !== payload.messageCreated.userId
+      );
     },
   })
-  messageCreated(@Args() _messageCreatedArgs: MessageCreatedArgs) {
-    return this.pubSub.asyncIterator(MESSAGE_CREATED);
+  messageCreated(
+    @Args() messageCreatedArgs: MessageCreatedArgs,
+    @CurrentUser() user: TokenPayload,
+  ) {
+    return this.messagesService.messageCreated(messageCreatedArgs, user._id);
   }
 }
