@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/client'
-import { graphql } from '../gql'
-import { ChatQueryVariables } from '../gql/graphql'
+import { useQuery } from "@apollo/client";
+import { graphql } from "../gql";
+import { ChatQueryVariables } from "../gql/graphql";
 
 const getChatDocument = graphql(`
   query Chat($_id: String!) {
@@ -8,10 +8,10 @@ const getChatDocument = graphql(`
       ...ChatFragment
     }
   }
-`)
+`);
 
 const useGetChat = (variables: ChatQueryVariables) => {
-  return useQuery(getChatDocument, { variables })
-}
+  return useQuery(getChatDocument, { variables });
+};
 
-export { useGetChat }
+export { useGetChat };

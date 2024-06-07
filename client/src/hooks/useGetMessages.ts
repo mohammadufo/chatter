@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/client'
-import { graphql } from '../gql'
-import { MessagesQueryVariables } from '../gql/graphql'
+import { useQuery } from "@apollo/client";
+import { graphql } from "../gql";
+import { MessagesQueryVariables } from "../gql/graphql";
 
 export const getMessagesDocument = graphql(`
   query Messages($chatId: String!) {
@@ -8,10 +8,10 @@ export const getMessagesDocument = graphql(`
       ...MessageFragment
     }
   }
-`)
+`);
 
 const useGetMessages = (variables: MessagesQueryVariables) => {
-  return useQuery(getMessagesDocument, { variables })
-}
+  return useQuery(getMessagesDocument, { variables });
+};
 
-export { useGetMessages }
+export { useGetMessages };

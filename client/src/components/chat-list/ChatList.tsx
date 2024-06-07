@@ -10,9 +10,10 @@ import { usePath } from '../../hooks/usePath'
 const ChatList = () => {
   const [chatListAddVisible, setChatListAddVisible] = useState(false)
   const [selectedChatId, setSelectedChatId] = useState('')
-
   const { data } = useGetChats()
   const { path } = usePath()
+
+  console.log(data)
 
   useEffect(() => {
     const pathSplit = path.split('chats/')

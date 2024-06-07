@@ -1,8 +1,8 @@
-import AddCircle from '@mui/icons-material/AddCircle'
-import { AppBar, IconButton, Toolbar } from '@mui/material'
+import AddCircle from "@mui/icons-material/AddCircle";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
 
 interface ChatListHeaderProps {
-  handleAddChat: () => void
+  handleAddChat: () => void;
 }
 
 const ChatListHeader = ({ handleAddChat }: ChatListHeaderProps) => {
@@ -14,7 +14,7 @@ const ChatListHeader = ({ handleAddChat }: ChatListHeaderProps) => {
         </IconButton>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default ChatListHeader
+export default ChatListHeader;

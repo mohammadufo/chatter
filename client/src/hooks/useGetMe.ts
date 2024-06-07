@@ -1,6 +1,5 @@
-import { gql, useQuery } from '@apollo/client'
-import { User } from '../models/User'
-import { graphql } from '../gql'
+import { useQuery } from "@apollo/client";
+import { graphql } from "../gql";
 
 const getMeDocument = graphql(`
   query Me {
@@ -9,10 +8,10 @@ const getMeDocument = graphql(`
       email
     }
   }
-`)
+`);
 
 const useGetMe = () => {
-  return useQuery<{ me: User }>(getMeDocument)
-}
+  return useQuery(getMeDocument);
+};
 
-export { useGetMe }
+export { useGetMe };

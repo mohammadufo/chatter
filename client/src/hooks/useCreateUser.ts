@@ -1,5 +1,5 @@
-import { useMutation } from '@apollo/client'
-import { graphql } from '../gql'
+import { useMutation } from "@apollo/client";
+import { graphql } from "../gql";
 
 const createUserDocument = graphql(`
   mutation CreateUser($createUserInput: CreateUserInput!) {
@@ -8,10 +8,10 @@ const createUserDocument = graphql(`
       email
     }
   }
-`)
+`);
 
 const useCreateUser = () => {
-  return useMutation(createUserDocument)
-}
+  return useMutation(createUserDocument);
+};
 
-export { useCreateUser }
+export { useCreateUser };
