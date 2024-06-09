@@ -9,12 +9,12 @@ import { ChatSchema } from './entities/chat.document';
 import { ChatsController } from './chats.controller';
 
 @Module({
-  controllers: [ChatsController],
   imports: [
     DatabaseModule.forFeature([{ name: Chat.name, schema: ChatSchema }]),
     forwardRef(() => MessagesModule),
   ],
   providers: [ChatsResolver, ChatsService, ChatsRepository],
   exports: [ChatsRepository],
+  controllers: [ChatsController],
 })
 export class ChatsModule {}

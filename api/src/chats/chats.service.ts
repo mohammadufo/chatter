@@ -3,7 +3,7 @@ import { CreateChatInput } from './dto/create-chat.input';
 import { UpdateChatInput } from './dto/update-chat.input';
 import { ChatsRepository } from './chats.repository';
 import { PipelineStage, Types } from 'mongoose';
-import { PaginationArgs } from 'src/common/dto/pagination-args.dto';
+import { PaginationArgs } from '../common/dto/pagination-args.dto';
 
 @Injectable()
 export class ChatsService {
@@ -61,6 +61,10 @@ export class ChatsService {
     return chats;
   }
 
+  async countChats() {
+    return this.chatsRepository.model.countDocuments({});
+  }
+
   async findOne(_id: string) {
     const chats = await this.findMany([
       { $match: { chatId: new Types.ObjectId(_id) } },
@@ -77,9 +81,5 @@ export class ChatsService {
 
   remove(id: number) {
     return `This action removes a #${id} chat`;
-  }
-
-  async countChats() {
-    return this.chatsRepository.model.countDocuments({});
   }
 }

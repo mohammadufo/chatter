@@ -7,7 +7,7 @@ import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { TokenPayload } from '../auth/token-payload.interface';
-import { PaginationArgs } from 'src/common/dto/pagination-args.dto';
+import { PaginationArgs } from '../common/dto/pagination-args.dto';
 
 @Resolver(() => Chat)
 export class ChatsResolver {
