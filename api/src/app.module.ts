@@ -13,7 +13,6 @@ import { ChatsModule } from './chats/chats.module';
 import { PubSubModule } from './common/pubsub/pubsub.module';
 import { Request } from 'express';
 import { AuthService } from './auth/auth.service';
-import { ChatController } from './chat/chat.controller';
 
 @Module({
   imports: [
@@ -71,7 +70,7 @@ import { ChatController } from './chat/chat.controller';
     ChatsModule,
     PubSubModule,
   ],
-  controllers: [AppController, ChatController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

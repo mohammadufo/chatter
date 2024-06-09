@@ -6,8 +6,10 @@ import { Chat } from './entities/chat.entity';
 import { ChatsRepository } from './chats.repository';
 import { MessagesModule } from './messages/messages.module';
 import { ChatSchema } from './entities/chat.document';
+import { ChatsController } from './chats.controller';
 
 @Module({
+  controllers: [ChatsController],
   imports: [
     DatabaseModule.forFeature([{ name: Chat.name, schema: ChatSchema }]),
     forwardRef(() => MessagesModule),
